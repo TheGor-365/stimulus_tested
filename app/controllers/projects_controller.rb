@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.tasks.build
   end
 
   def create
@@ -46,6 +47,17 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :completed)
+    params.require(:project).permit(
+      :name,
+      :description,
+      :completed,
+      tasks_attributes: [
+        :id,
+        :name,
+        :description,
+        :completed,
+        :_destroy
+      ]
+    )
   end
 end

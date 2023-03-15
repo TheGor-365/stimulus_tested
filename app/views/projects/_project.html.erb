@@ -1,17 +1,39 @@
-<div id="<%= dom_id project %>">
-  <p>
-    <strong>Name:</strong>
-    <%= project.name %>
-  </p>
+<div id="<%= dom_id project %>" class="col-7">
+  <div class="shadow rounded p-5 bg-light">
+    <p>
+      <strong>Name:</strong>
+      <%= project.name %>
+    </p>
+    <hr>
+    <p>
+      <strong>Description:</strong>
+      <%= project.description %>
+    </p>
+    <p>
+      <strong>Status:</strong>
+      <small class="text-muted">
+        <%= project.completed ? "(completed)" : "(not completed)" %>
+      </small>
+    </p>
+    <hr>
+  </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= project.description %>
-  </p>
-
-  <p>
-    <strong>Completed:</strong>
-    <%= project.completed %>
-  </p>
-
+  <div class="shadow rounded p-5 my-5 bg-light">
+    <p>
+      <strong><%= project.name %> tasks:</strong>
+      <ul>
+        <% project.tasks.each do |task| %>
+          <hr>
+          <li class="mb-2">
+            <%= task.description %><br>
+            <small class="text-muted">
+              <%= task.completed ? "(completed)" : "(not completed)" %>
+            </small><br>
+            <%= link_to "See More", task, class: "text-success" %>
+            <hr>
+          </li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
 </div>

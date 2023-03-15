@@ -1,0 +1,17 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <div class="shadow rounded p-5 my-3 bg-light">
+    <%= f.label      :description, class: "form-label" %>
+    <%= f.text_field :description, class: "form-control" %>
+
+    <div class="my-2">
+      <%= f.label     :completed, class: "form-check-label me-2" %>
+      <%= f.check_box :completed, class: "form-check-input" %>
+    </div>
+
+    <button type="button" data-action="nested-form#remove" class="btn btn-primary my-3">
+      Remove Task
+    </button>
+
+    <%= f.hidden_field :_destroy %>
+  </div>
+</div>
