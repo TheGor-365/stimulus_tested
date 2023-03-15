@@ -1,17 +1,19 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
-
-  <p>
-    <strong>Completed:</strong>
-    <%= task.completed %>
-  </p>
-
-  <p>
-    <strong>Project:</strong>
-    <%= task.project_id %>
-  </p>
-
+<div id="<%= dom_id task %>" class="col-7">
+  <div class="shadow rounded p-5 bg-light">
+    <hr>
+    <p>
+      <strong>Description:</strong>
+      <%= task.description %>
+    </p>
+    <p>
+      <small class="text-muted">
+        <%= task.completed ? "completed" : "not completed" %>
+      </small><br>
+    </p>
+    <hr>
+    <p>
+      <strong>Project:</strong>
+      <%= task.project_id %>
+    </p>
+  </div>
 </div>
