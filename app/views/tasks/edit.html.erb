@@ -3,8 +3,7 @@
 <%= render "form", task: @task %>
 
 <br>
-
 <div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
+  <%= link_to "Show this task", @task %><br>
+  <%= link_to "Back to tasks", tasks_path, class: "text-secondary" %>
 </div>
