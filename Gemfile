@@ -15,10 +15,11 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
+gem "simple_calendar", "~> 2.4"
+gem "sassc-rails"
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
-# gem "sassc-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

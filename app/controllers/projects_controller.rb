@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def project_calendar
+    @project = Project.find(params[:id])
+  end
+
   def show; end
   def edit; end
 

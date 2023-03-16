@@ -5,6 +5,10 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def task_calendar
+    @task = Task.find(params[:id])
+  end
+
   def show; end
   def edit; end
 
