@@ -1,32 +1,30 @@
-<%= form_with(model: task) do |form| %>
-  <% if task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<div class="rounded shadow p-5 col-8 bg-light">
+  <%= form_with(model: task) do |form| %>
 
-      <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <% if task.errors.any? %>
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <% task.errors.each do |error| %>
+        <p><%= error.full_message %></p>
+      <% end %>
+    <% end %>
+
+    <div class="card p-5 bg-white my-5">
+      <%= form.label :project, class: "form-label" %>
+      <%= form.collection_select(:project_id, Project.all, :id, :name, { include_blank: "Select Project" }, class: 'form-control text-muted') %>
+    </div>
+
+    <div>
+      <%= form.label :task_description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="my-2">
+      <%= form.label :completed, class: "form-check-label me-2" %>
+      <%= form.check_box :completed, class: "form-check-input" %>
+    </div>
+
+    <div class="mt-3">
+      <%= form.submit class: "btn btn-success" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :completed, style: "display: block" %>
-    <%= form.check_box :completed %>
-  </div>
-
-  <div>
-    <%= form.label :project_id, style: "display: block" %>
-    <%= form.text_field :project_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

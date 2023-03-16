@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @projects = Project.all
   end
 
   def task_calendar

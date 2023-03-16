@@ -1,9 +1,8 @@
-<h1>Editing project</h1>
+<h1 class="mb-3">Editing project</h1>
 
 <%= render "form", project: @project %>
-
 <br>
-<div>
-  <%= link_to "Show this project", @project %><br>
+<div class="ard shadow rounded p-4 bg-light text-center col-8">
+  <%= link_to "Show project", @project %><br>
   <%= link_to "Back to projects", projects_path, class: "text-secondary" %>
 </div>

@@ -1,12 +1,8 @@
-<h1>Projects</h1>
+<h1 class="mb-3">Projects</h1>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New project", new_project_path, class: "text-success" %>
+<% @projects.each do |project| %>
+  <%= render project %>
+  <div class="mt-5">
+    <%= link_to "Show this project", project, class: "card shadow rounded p-4 bg-light text-center mb-5 col-7" %>
+  </div>
+<% end %>
