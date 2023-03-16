@@ -1,8 +1,8 @@
-<h1 class="mb-3">Projects</h1>
+<h1 class="mb-3 text-light display-6">Projects</h1>
 
 <% @projects.each do |project| %>
   <%= render project %>
   <div class="mt-5">
-    <%= link_to "Show this project", project, class: "card shadow rounded p-4 bg-light text-center mb-5 col-7" %>
+    <%= link_to "Show project", project, class: "card shadow rounded p-4 bg-light text-center mb-5 col-7" %>
   </div>
 <% end %>

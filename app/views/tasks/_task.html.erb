@@ -1,19 +1,20 @@
 <div id="<%= dom_id task %>" class="col-7">
   <div class="shadow rounded p-5 bg-light">
-    <hr>
-    <p>
-      <strong>Description:</strong>
+
+    <h3 class="text-muted mb-3"><%= task.project.name %></h3>
+    <div class="card bg-white p-3 mb-3">
       <%= task.description %>
-    </p>
-    <p>
-      <small class="text-muted">
-        <%= task.completed ? "completed" : "not completed" %>
+    </div>
+
+    <small>Status:</small>
+    <% if task.completed %>
+      <small class="float-end text-success">
+        completed
       </small><br>
-    </p>
-    <hr>
-    <p>
-      <strong>Project:</strong>
-      <%= task.project.name %>
-    </p>
+    <% else %>
+      <small class="float-end text-danger">
+        not completed
+      </small><br>
+    <% end %>
   </div>
 </div>
