@@ -8,18 +8,29 @@
       <% end %>
     <% end %>
 
-    <div>
-      <%= form.label :name, class: "form-label" %>
-      <%= form.text_field :name, class: "form-control" %>
+    <div class="mb-3">
+      <%= form.text_field :name, class: "form-control", placeholder: "project name" %>
     </div>
 
     <div>
-      <%= form.label :description, class: "form-label" %>
-      <%= form.text_area :description, class: "form-control" %>
+      <%= form.text_area :description, class: "form-control", placeholder: "project overview" %>
     </div>
 
-    <div class="my-2">
-      <%= form.label :completed, class: "form-check-label me-2" %>
+    <div class="row border p-5 mx-1 my-3 rounded">
+      <div class="col-5 me-5">
+        <%= form.label :start_project, class: "form-label text-muted" %>
+        <%= form.datetime_field :start_time, class: "form-control" %>
+      </div>
+
+      <div class="ms-5 col-5">
+        <%= form.label :end_project, class: "form-label text-muted" %>
+        <%= form.datetime_field :end_time, class: "form-control" %>
+        <small class="text-muted">* optional</small>
+      </div>
+    </div>
+
+    <div class="my-3">
+      <%= form.label :completed, class: "form-check-label me-2 text-muted" %>
       <%= form.check_box :completed, class: "form-check-input" %>
     </div>
 

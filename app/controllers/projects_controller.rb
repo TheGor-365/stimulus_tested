@@ -6,7 +6,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_calendar
-    @project = Project.find(params[:id])
+    @projects = Project.where(
+      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
   end
 
   def show; end
@@ -54,11 +56,17 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(
       :name,
       :description,
+      :start_time,
+      :end_time,
+      :deadline,
       :completed,
       tasks_attributes: [
         :id,
         :name,
         :description,
+        :start_time,
+        :end_time,
+        :deadline,
         :completed,
         :_destroy
       ]

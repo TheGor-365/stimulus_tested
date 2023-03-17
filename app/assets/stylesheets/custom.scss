@@ -1,0 +1,42 @@
+a {
+  text-decoration: none !important;
+}
+
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: #B6FF6F !important;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    opacity: .5;
+  }
+  .next-month {}
+  .current-month {}
+
+  .has-events {
+    background-color: #CAFF97;
+  }
+}
+
+.wday-0 {
+  color: red !important;
+}
+
+.card-body {
+  max-height: 100px;
+  overflow-y: auto;
+}

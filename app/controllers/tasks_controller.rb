@@ -7,7 +7,9 @@ class TasksController < ApplicationController
   end
 
   def task_calendar
-    @task = Task.find(params[:id])
+    @tasks = Task.where(
+      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
   end
 
   def show; end
@@ -51,6 +53,14 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:description, :completed, :project_id)
+    params.require(:task).permit(
+      :name,
+      :description,
+      :completed,
+      :start_time,
+      :end_time,
+      :deadline,
+      :project_id
+    )
   end
 end

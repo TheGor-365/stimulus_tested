@@ -15,37 +15,4 @@
  *= require simple_calendar
  */
 
-
-a {
-  text-decoration: none !important;
-}
-
-.simple-calendar {
-  .day {}
-
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
-
-  .today {
-    background-color: #B6FF6F !important;
-  }
-  .past {}
-  .future {}
-
-  .start-date {}
-
-  .prev-month {
-    opacity: .5;
-  }
-  .next-month {
-    opacity: .5;
-  }
-  .current-month {}
-
-  .has-events {}
-}
+@import 'custom';
