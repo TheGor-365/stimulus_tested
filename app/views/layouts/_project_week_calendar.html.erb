@@ -1,7 +1,41 @@
-<%= week_calendar(events: @projects) do |date, projects| %>
-  <%= date %>
+<div class="rounded shadow p-5 bg-light">
+  <%= week_calendar(events: @projects) do |date, projects| %>
+    <small class="card p-2 bg-footer-cal text-center">
+      <%= date.strftime('%d %B %a') %>
+    </small>
 
-  <% projects.each do |project| %>
-    <%= project.title %>
+    <% projects.each do |project| %>
+      <div class="p-3">
+
+        <div class="card-header card">
+          <div class="card-name">
+            <strong>
+              <%= link_to project.name, project, class: "text-dark" %>
+            </strong>
+          </div>
+        </div>
+
+        <div class="card-body card">
+          <small class="card-text">
+            <%= project.description %>
+          </small>
+        </div>
+
+        <div class="border text-muted mb-3 px-3 bg-white pt-2">
+          <small class="card-text">
+            From:
+          </small>
+          <small class="float-end">
+            <%= project.start_time.to_s(:time) %>
+          </small><br>
+          <small class="card-text">
+            To:
+          </small>
+          <small class="float-end">
+            <%= project.end_time.to_s(:time) %>
+          </small>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -1,8 +1,9 @@
 <div class="rounded shadow p-5 bg-light">
   <%= month_calendar(events: @tasks) do |date, tasks| %>
-    <small class="card p-2 bg-footer-cal text-center">
-      <%= date.strftime('%d %B %a') %>
-    </small>
+
+    <div class="text-center">
+      <%= date.day %>
+    </div>
 
     <% tasks.each do |task| %>
       <div class="p-3">
@@ -36,6 +37,12 @@
           </small>
         </div>
       </div>
+
+      <%= link_to task_week_calendar_path do %>
+        <small class="card p-2 bg-footer-cal text-center">
+          <%= date.strftime('%d %B %a') %>
+        </small>
+      <% end %>
     <% end %>
   <% end %>
 </div>

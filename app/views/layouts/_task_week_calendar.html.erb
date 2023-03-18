@@ -1,24 +1,23 @@
 <div class="rounded shadow p-5 bg-light">
-  <%= month_calendar(events: @projects) do |date, projects| %>
+  <%= week_calendar(events: @tasks) do |date, tasks| %>
+    <small class="card p-2 bg-footer-cal text-center">
+      <%= date.strftime('%d %B %a') %>
+    </small>
 
-    <div class="text-center">
-      <%= date.day %>
-    </div>
-
-    <% projects.each do |project| %>
+    <% tasks.each do |task| %>
       <div class="p-3">
 
         <div class="card-header card">
           <div class="card-name">
             <strong>
-              <%= link_to project.name, project, class: "text-dark" %>
+              <%= link_to task.name, task, class: "text-dark" %>
             </strong>
           </div>
         </div>
 
         <div class="card-body card">
           <small class="card-text">
-            <%= project.description %>
+            <%= task.description %>
           </small>
         </div>
 
@@ -27,22 +26,16 @@
             From:
           </small>
           <small class="float-end">
-            <%= project.start_time.to_s(:time) %>
+            <%= task.start_time.to_s(:time) %>
           </small><br>
           <small class="card-text">
             To:
           </small>
           <small class="float-end">
-            <%= project.end_time.to_s(:time) %>
+            <%= task.end_time.to_s(:time) %>
           </small>
         </div>
       </div>
-
-      <%= link_to project_week_calendar_path(project) do %>
-        <small class="card p-2 bg-footer-cal text-center">
-          <%= date.strftime('%d %B %a') %>
-        </small>
-      <% end %>
     <% end %>
   <% end %>
 </div>
