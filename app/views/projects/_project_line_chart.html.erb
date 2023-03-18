@@ -1,0 +1,4 @@
+<div class="card p-3">
+  <%= line_chart Project.group_by_day(:created_at).count %>
+</div>
+<%= link_to "Project", project_path(@project), class: "text-primary float-start py-3" %>

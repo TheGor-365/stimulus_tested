@@ -1,0 +1,4 @@
+<div class="card p-3">
+  <%= line_chart Task.group_by_day(:created_at).count %>
+</div>
+<%= link_to "Task", task_path(@task), class: "text-primary float-start py-3" %>

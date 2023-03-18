@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update project_line_chart destroy ]
 
   def index
     @projects = Project.all
@@ -15,6 +15,10 @@ class ProjectsController < ApplicationController
     @projects = Project.where(
       start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
+  end
+
+  def project_line_chart
+    render turbo_stream: turbo_stream.replace("graph", partial: "projects/project_line_chart")
   end
 
   def show; end

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update task_line_chart destroy ]
 
   def index
     @tasks = Task.all
@@ -16,6 +16,10 @@ class TasksController < ApplicationController
     @tasks = Task.where(
       start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
+  end
+
+  def task_line_chart
+    render turbo_stream: turbo_stream.replace("graph", partial: "tasks/task_line_chart")
   end
 
   def show; end

@@ -17,6 +17,8 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "simple_calendar", "~> 2.4"
 gem "sassc-rails"
+gem "chartkick"
+gem "groupdate"
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
