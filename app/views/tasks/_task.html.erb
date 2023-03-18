@@ -1,45 +1,50 @@
 <div id="<%= dom_id task %>" class="col-7">
-  <div class="shadow rounded p-5 bg-light">
+  <div class="shadow rounded p-3 bg-light pb-5">
 
-    <h3 class="text-muted mb-3">
+    <h3 class="card-title bg-light-grey p-3">
       <%= task.project.name %>
     </h3>
 
-    <div class="card bg-white p-3 mb-3">
+    <div class="card-body bg-light-info bg-gradient p-3">
       <%= task.description %>
     </div>
 
-    <small>Status:</small>
-    <% if task.completed %>
-      <small class="float-end text-success">
-        completed
-      </small><br>
-    <% else %>
-      <small class="float-end text-danger">
-        not completed
-      </small><br>
-    <% end %>
+    <div class="border p-3 bg-footer">
 
-    <small>Started:</small>
-    <small class="text-muted float-end">
-      <%= task.created_at.to_date %>
-    </small><br>
+      <small>Status:</small>
+      <% if task.completed %>
+        <small class="float-end text-success">
+          completed
+        </small><br>
+      <% else %>
+        <small class="float-end text-danger">
+          not completed
+        </small><br>
+      <% end %>
 
-    <small>End task:</small>
-    <small class="text-danger float-end">
-      <%= task.end_time.to_date %>
-    </small><br>
-
-    <% if task.completed %>
-      <small>Finished:</small>
+      <small>Started:</small>
       <small class="text-muted float-end">
-        <%= task.updated_at.to_date %>
+        <%= task.created_at.to_date %>
       </small><br>
-    <% end %>
 
-    <small>Duration </small>
-    <small class="text-muted float-end">
-      <%= time_ago_in_words task.created_at %>
-    </small><hr>
+      <small>End task:</small>
+      <small class="text-danger float-end">
+        <%= task.end_time.to_date %>
+      </small><br>
+
+      <% if task.completed %>
+        <small>Finished:</small>
+        <small class="text-muted float-end">
+          <%= task.updated_at.to_date %>
+        </small><br>
+      <% end %>
+
+      <small>Duration </small>
+      <small class="text-muted float-end">
+        <%= time_ago_in_words task.created_at %>
+      </small>
+    </div>
+
+    <%= link_to "Calendar", task_calendar_path(task), class: "text-success py-2 float-end" %>
   </div>
 </div>

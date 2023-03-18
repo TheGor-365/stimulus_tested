@@ -11,6 +11,12 @@ class ProjectsController < ApplicationController
     )
   end
 
+  def project_week_calendar
+    @projects = Project.where(
+      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
+  end
+
   def show; end
   def edit; end
 

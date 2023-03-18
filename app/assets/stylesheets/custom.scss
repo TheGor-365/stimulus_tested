@@ -1,6 +1,11 @@
+// LINKS
+
 a {
   text-decoration: none !important;
 }
+
+
+// CALENDAR STYLES
 
 .simple-calendar {
   .day {}
@@ -39,4 +44,23 @@ a {
 .card-body {
   max-height: 100px;
   overflow-y: auto;
+}
+
+
+// BACKGROUND COLOR
+
+.bg-light-info {background-color: #8CE5F6;}
+.bg-light-grey {background-color: #BABDB6;}
+.bg-footer     {background-color: #C6F6FF;}
+.bg-footer-cal {background-color: #EBECED;}
+.bg-black      {background-color: black;}
+
+
+// TASK CARD
+
+.tasks {
+  overflow-x: auto;
+}
+.task {
+  min-width: 200px;
 }

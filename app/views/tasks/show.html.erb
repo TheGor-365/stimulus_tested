@@ -1,9 +1,6 @@
 <%= render @task %>
 
 <div class="mt-3 card shadow rounded p-4 bg-light text-center my-5 col-7">
-  <%= link_to "Details", task_calendar_path(@task), class: "text-success" %>
   <%= link_to "Edit task", edit_task_path(@task) %><br>
   <%= button_to "Destroy task", @task, method: :delete, class: "m-0 p-0 btn btn-link text-danger text-decoration-none" %>
-  <%= link_to "Back to tasks", tasks_path, class: "text-secondary" %><br>
-  <%= link_to "Back to projects", projects_path, class: "text-secondary" %>
 </div>

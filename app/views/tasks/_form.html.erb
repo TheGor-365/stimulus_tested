@@ -1,4 +1,4 @@
-<div class="rounded shadow p-5 col-8 bg-light">
+<div class="rounded shadow p-5 col-8 bg-footer-cal">
   <%= form_with(model: task) do |form| %>
 
     <% if task.errors.any? %>
@@ -21,7 +21,7 @@
       <%= form.text_area :description, class: "form-control", placeholder: "task overview" %>
     </div>
 
-    <div class="row border p-5 mx-1 my-3 rounded">
+    <div class="row border border-secondary p-5 mx-1 my-4 rounded">
       <div class="col-5 me-5">
         <%= form.label :start_task, class: "form-label text-muted" %>
         <%= form.datetime_field :start_time, class: "form-control" %>

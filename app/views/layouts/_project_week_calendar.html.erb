@@ -1,0 +1,7 @@
+<%= week_calendar(events: @projects) do |date, projects| %>
+  <%= date %>
+
+  <% projects.each do |project| %>
+    <%= project.title %>
+  <% end %>
+<% end %>

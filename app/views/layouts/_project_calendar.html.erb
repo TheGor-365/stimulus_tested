@@ -1,6 +1,13 @@
 <div class="rounded shadow p-5 bg-light">
   <%= month_calendar(events: @projects) do |date, projects| %>
-    <%= date.day %>
+
+    <% projects.each do |project| %>
+      <%= link_to project_week_calendar_path(project) do %>
+        <small class="card p-2 bg-footer-cal text-center">
+          <%= date.strftime('%d %B %a') %>
+        </small>
+      <% end %>
+    <% end %>
 
     <% projects.each do |project| %>
       <div class="p-3">
@@ -8,7 +15,7 @@
         <div class="card-header card">
           <div class="card-name">
             <strong>
-              <%= link_to project.name, project, class: "text-danger" %>
+              <%= link_to project.name, project, class: "text-dark" %>
             </strong>
           </div>
         </div>
@@ -19,7 +26,7 @@
           </small>
         </div>
 
-        <div class="card-footer text-muted my-3">
+        <div class="border text-muted mb-3 px-3 bg-white pt-2">
           <small class="card-text">
             From:
           </small>

@@ -1,61 +1,70 @@
 <div id="<%= dom_id project %>" class="col-7">
-  <div class="shadow rounded p-5 bg-light">
+  <div class="shadow rounded p-3 bg-light pb-5">
 
-    <h3 class="text-muted mb-3">
+    <h3 class="card-title bg-light-grey p-3">
       <%= project.name %>
     </h3>
 
-    <div class="card bg-white p-3 mb-3">
+    <div class="card-body bg-light-info p-3">
       <p><%= project.description %></p>
     </div>
 
-    <small>Status:</small>
-    <% if project.completed %>
-      <small class="float-end text-success">
-        completed
+    <div class="border p-3 bg-footer">
+
+      <small>Status:</small>
+      <% if project.completed %>
+        <small class="float-end text-success">
+          completed
+        </small><br>
+      <% else %>
+        <small class="float-end text-danger">
+          not completed
+        </small><br>
+      <% end %>
+
+      <small>Started:</small>
+      <small class="text-success float-end">
+        <%= project.created_at.to_date %>
       </small><br>
-    <% else %>
-      <small class="float-end text-danger">
-        not completed
+
+      <small>End time:</small>
+      <small class="text-danger float-end">
+        <%= project.end_time.to_date %>
       </small><br>
-    <% end %>
 
-    <small>Started:</small>
-    <small class="text-success float-end">
-      <%= project.created_at.to_date %>
-    </small><br>
+      <% if project.completed %>
+        <small>Finished:</small>
+        <small class="text-muted float-end">
+          <%= project.updated_at.to_date %>
+        </small><br>
+      <% end %>
 
-    <small>End time:</small>
-    <small class="text-danger float-end">
-      <%= project.end_time.to_date %>
-    </small><br>
-
-    <% if project.completed %>
-      <small>Finished:</small>
+      <small>Duration </small>
       <small class="text-muted float-end">
-        <%= project.updated_at.to_date %>
-      </small><br>
-    <% end %>
+        <%= time_ago_in_words project.created_at %>
+      </small>
+    </div>
 
-    <small>Duration </small>
-    <small class="text-muted float-end">
-      <%= time_ago_in_words project.created_at %>
-    </small><hr>
-
-    <%= link_to "Details", project_calendar_path(project), class: "text-success" %>
+    <%= link_to "Calendar", project_calendar_path(project), class: "text-success float-end py-2" %>
   </div>
 
-  <div class="shadow rounded p-5 mt-5 bg-light">
-    <h5 class="text-muted mb-3">
-      <%= project.name %> tasks:
-    </h5>
-    <ol>
-      <% project.tasks.each do |project_task| %>
-        <li class="mb-5">
+  <h5 class="text-white mt-5 mb-3">
+    <%= project.name %> tasks:
+  </h5>
 
-          <div class="card bg-white p-3 mb-3">
-            <%= project_task.description %>
-          </div>
+  <div class="row mx-1 tasks flex-row flex-nowrap pb-5">
+    <% project.tasks.each do |project_task| %>
+      <div class="shadow rounded p-3 bg-light col-4 me-5 task pb-5">
+
+        <h6 class="card-title bg-light-grey p-3">
+          <%= project_task.name %>
+        </h6>
+
+        <div class="card-body bg-light-info bg-gradient p-3">
+          <%= project_task.description %>
+        </div>
+
+        <div class="border p-3 bg-footer">
 
           <small>Status:</small>
           <% if project_task.completed %>
@@ -88,11 +97,11 @@
           <small>Duration </small>
           <small class="text-muted float-end">
             <%= time_ago_in_words project_task.created_at %>
-          </small><hr>
+          </small>
+        </div>
 
-          <%= link_to "See More", project_task, class: "text-success" %>
-        </li>
-      <% end %>
-    </ol>
+        <%= link_to "Show task", project_task, class: "text-success float-end py-2" %>
+      </div>
+    <% end %>
   </div>
 </div>
