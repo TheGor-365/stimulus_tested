@@ -2,7 +2,7 @@
   <div class="shadow rounded p-3 bg-light pb-5">
     <%= turbo_frame_tag "graph" do %>
 
-      <h3 class="card-title bg-secondary bg-gradient p-3">
+      <h3 class="card-title bg-secondary bg-gradient p-3 <%= project.completed ? 'completed' : 'uncompleted' %>">
         <%= project.name %>
       </h3>
 
@@ -52,7 +52,7 @@
       </div>
       <%= form_with(model: project) do |f| %>
         <div class="form-check form-switch form-check-reverse">
-          <%= f.check_box(:repairman, { class: "form-check-input" }, { id: 'project' }) %>
+          <%= f.check_box(:completed, { class: "form-check-input" }, { id: 'project' }) %>
           <%= f.label 'Complete project', class: "form-check-label text-muted", for: "project" %>
         </div>
       <% end %>
@@ -70,7 +70,7 @@
     <% project.tasks.each do |project_task| %>
       <div class="shadow rounded p-3 bg-light col-4 me-5 task pb-5">
 
-        <h6 class="card-title bg-secondary bg-gradient p-3">
+        <h6 class="card-title bg-secondary bg-gradient p-3 <%= project_task.completed ? 'completed' : 'uncompleted' %>">
           <%= project_task.name %>
         </h6>
 
@@ -116,7 +116,7 @@
 
         <%= form_with(model: project_task) do |f| %>
           <div class="form-check form-switch form-check-reverse">
-            <%= f.check_box(:repairman, { class: "form-check-input" }, { id: 'project_task' }) %>
+            <%= f.check_box(:completed, { class: "form-check-input" }, { id: 'project_task' }) %>
             <%= f.label 'Complete task', class: "form-check-label text-muted", for: "project_task" %>
           </div>
         <% end %>

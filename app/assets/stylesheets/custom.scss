@@ -64,3 +64,14 @@ a {
 .task {
   min-width: 200px;
 }
+
+
+// COMPLETION STYLES
+
+.completed {
+  border-bottom: green solid 3px !important;
+}
+
+.uncompleted {
+  border-bottom: red solid 3px !important;
+}
