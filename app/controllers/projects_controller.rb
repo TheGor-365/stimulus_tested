@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to project_url(@project) }
+        format.html { redirect_back_or_to project_url(@project) }
       else
         format.html { render :edit }
       end

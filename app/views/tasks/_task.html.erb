@@ -2,7 +2,7 @@
   <div class="shadow rounded p-3 bg-light pb-5">
     <%= turbo_frame_tag "graph" do %>
 
-      <h3 class="card-title bg-secondary bg-gradient p-3 <%= task.completed ? 'completed' : 'uncompleted' %>">
+      <h3 class="card-title rounded bg-secondary bg-gradient p-3 <%= task.completed ? 'completed' : 'uncompleted' %>">
         <%= task.project.name %>
       </h3>
 
@@ -47,9 +47,15 @@
       </div>
 
       <%= form_with(model: task) do |f| %>
-        <div class="form-check form-switch form-check-reverse">
-          <%= f.check_box(:completed, { class: "form-check-input" }, { id: 'task' }) %>
-          <%= f.label 'Complete task', class: "form-check-label text-muted", for: "task" %>
+        <div class="form-check form-switch form-check-reverse pe-0">
+          <%= f.hidden_field :id, value: task.id %>
+          <div class="float-start">
+            <%= f.check_box(:completed, { class: "form-check-input" }, { id: 'task' }) %>
+            <%= f.label 'Complete', class: "form-check-label text-muted", for: "task" %><br>
+          </div>
+          <%= task.completed ?
+          (f.submit "Restart task", class: "m-0 p-0 btn btn-link text-success text-decoration-none") :
+          (f.submit "Complete task", class: "m-0 p-0 btn btn-link text-danger text-decoration-none") %>
         </div>
       <% end %>
 

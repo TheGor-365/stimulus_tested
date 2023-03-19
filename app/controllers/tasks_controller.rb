@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task) }
+        format.html { redirect_back_or_to task_url(@task) }
       else
         format.html { render :edit }
       end
