@@ -64,6 +64,7 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(
+      :id,
       :name,
       :description,
       :completed,
