@@ -7,7 +7,7 @@
     <% tasks.each do |task| %>
       <div class="p-3">
 
-        <div class="card-header card <%= task.completed ? 'completed' : 'uncompleted' %>">
+        <div class="card-header card <%= task.completed ? 'completed bg-completed' : 'uncompleted bg-uncompleted' %>">
           <div class="card-name">
             <strong>
               <%= link_to task.name, task, class: "text-dark" %>
@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <div class="card-body card">
+        <div class="card-body card bg-card-body">
           <small class="card-text">
             <%= task.description %>
           </small>

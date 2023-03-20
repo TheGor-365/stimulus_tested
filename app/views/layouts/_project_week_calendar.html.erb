@@ -7,7 +7,7 @@
     <% projects.each do |project| %>
       <div class="p-3">
 
-        <div class="card-header card  <%= project.completed ? 'completed' : 'uncompleted' %>">
+        <div class="card-header card  <%= project.completed ? 'completed bg-completed' : 'uncompleted bg-uncompleted' %>">
           <div class="card-name">
             <strong>
               <%= link_to project.name, project, class: "text-dark" %>
@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <div class="card-body card">
+        <div class="card-body card bg-card-body">
           <small class="card-text">
             <%= project.description %>
           </small>
