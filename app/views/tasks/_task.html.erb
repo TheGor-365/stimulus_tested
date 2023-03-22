@@ -1,49 +1,51 @@
-<div id="<%= dom_id task %>" class="col-7">
+<div id="<%= dom_id task %>" class="col-7 p-5 bg-black rounded mt-5">
   <div class="shadow rounded p-3 bg-light pb-5">
     <%= turbo_frame_tag "graph" do %>
 
-      <h3 class="card-title rounded p-3 <%= task.completed ? 'completed bg-completed' : 'uncompleted bg-uncompleted' %>">
-        <%= task.project.name %>
-      </h3>
+      <div class="border rounded shadow mb-3">
+        <h3 class="card-title rounded p-3 <%= task.completed ? 'completed bg-completed' : 'uncompleted bg-uncompleted' %>">
+          <%= task.project.name %>
+        </h3>
 
-      <div class="card-body bg-card-body p-3">
-        <%= task.description %>
-      </div>
+        <div class="card-body bg-card-body p-3">
+          <%= task.description %>
+        </div>
 
-      <div class="border p-3 bg-footer">
+        <div class="border p-3 bg-footer">
 
-        <small>Status:</small>
-        <% if task.completed %>
-          <small class="float-end text-success">
-            completed
-          </small><br>
-        <% else %>
-          <small class="float-end text-danger">
-            not completed
-          </small><br>
-        <% end %>
+          <small>Status:</small>
+          <% if task.completed %>
+            <small class="float-end text-success">
+              completed
+            </small><br>
+          <% else %>
+            <small class="float-end text-danger">
+              not completed
+            </small><br>
+          <% end %>
 
-        <small>Started:</small>
-        <small class="text-muted float-end">
-          <%= task.created_at.to_date %>
-        </small><br>
-
-        <small>End task:</small>
-        <small class="text-danger float-end">
-          <%= task.end_time.to_date %>
-        </small><br>
-
-        <% if task.completed %>
-          <small>Finished:</small>
+          <small>Started:</small>
           <small class="text-muted float-end">
-            <%= task.updated_at.to_date %>
+            <%= task.created_at.to_date %>
           </small><br>
-        <% end %>
 
-        <small>Duration </small>
-        <small class="text-muted float-end">
-          <%= time_ago_in_words task.created_at %>
-        </small>
+          <small>End task:</small>
+          <small class="text-danger float-end">
+            <%= task.end_time.to_date %>
+          </small><br>
+
+          <% if task.completed %>
+            <small>Finished:</small>
+            <small class="text-muted float-end">
+              <%= task.updated_at.to_date %>
+            </small><br>
+          <% end %>
+
+          <small>Duration </small>
+          <small class="text-muted float-end">
+            <%= time_ago_in_words task.created_at %>
+          </small>
+        </div>
       </div>
 
       <%= form_with(model: task) do |f| %>

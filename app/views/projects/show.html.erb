@@ -1,6 +1,6 @@
 <%= render @project %>
 
-<div class="mt-5 card shadow rounded p-4 bg-light text-center my-5 col-7">
+<div class="card shadow rounded p-4 bg-light text-center col-7">
   <%= link_to "Edit project", edit_project_path(@project) %><br>
   <%= button_to "Destroy project", @project, method: :delete, class: "m-0 p-0 btn btn-link text-danger text-decoration-none" %>
 </div>
